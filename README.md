@@ -1,2 +1,2 @@
 # scream-bot
-Discord scream bot
+Discord Scream Bot
