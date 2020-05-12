@@ -45,15 +45,19 @@ client.on("message", message => {
       });
     };
 
-    // First scream before interval kicks off
-    scream();
-    let screamInterval = setInterval(scream, 20000);
-    screamIntervalMap[message.member.voice.channel.id] = screamInterval;
+    const id = message.member.voice.channel.id
+    if(!screamIntervalMap[id]) {
+      // First scream before interval kicks off
+      scream();
+      const screamInterval = setInterval(scream, 5000);
+      screamIntervalMap[id] = screamInterval;
+    }
   }
 
   if (message.content === "!STOP") {
-    clearInterval(screamIntervalMap[message.member.voice.channel.id]);
-    delete screamIntervalMap[message.member.voice.channel.id];
+    const id = message.member.voice.channel.id
+    clearInterval(screamIntervalMap[id]);
+    delete screamIntervalMap[id];
   }
 });
 
