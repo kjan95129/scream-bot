@@ -49,7 +49,7 @@ client.on("message", message => {
     if(!screamIntervalMap[id]) {
       // First scream before interval kicks off
       scream();
-      const screamInterval = setInterval(scream, 5000);
+      const screamInterval = setInterval(scream, 20000);
       screamIntervalMap[id] = screamInterval;
     }
   }
